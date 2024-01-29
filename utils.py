@@ -55,6 +55,7 @@ def load_folder_txt(folder_path) -> list:
                 lines = file.readlines()
                 sentence_list.extend(line.strip() for line in lines if line.strip())
     sentence_list = list(sorted(sentence_list))
+    sentence_list = [s.strip() for s in sentence_list]
     print(f"Success") 
     print(f"Number of sentences : {len(sentence_list)}")
     return sentence_list

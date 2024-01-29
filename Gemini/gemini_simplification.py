@@ -42,7 +42,11 @@ class GeminiSimplification(TextByGemini):
                 prompt = self.gen_zero_shot_prompt(sent)
                 result = self.generate_text(prompt)
                 # result = prompt
-                simplified_sents.append(result)
+                info = {
+                    'sentence': sent,
+                    'result': result
+                }
+                simplified_sents.append(info)
         
             # update result
             gemini_result.extend(simplified_sents)

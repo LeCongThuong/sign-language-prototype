@@ -53,9 +53,14 @@ class GPT4Simplification(TextByGPT4):
                     with open(self.tracker_path, 'w', encoding='utf-8') as tracker_file:
                         tracker_file.write(str(start))
                     tracker_file.close()
+                    print("There is a problem with GPT4 API .")
                     return
                 
-                simplified_sents.append(result)
+                info = {
+                    'sentence': sent,
+                    'result': result
+                }
+                simplified_sents.append(info)
                 # count += 1
         
             # update result
