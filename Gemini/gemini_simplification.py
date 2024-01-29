@@ -61,9 +61,9 @@ class GeminiSimplification(TextByGemini):
 
     def gen_zero_shot_prompt(self, sentence) -> str:
         return f"""
-                Simplify this sentence to make it more understandable . You can keep sentence the same if you think there is not thing to simplify .
+                I want you to replace my sentence with simple sentence(s). Keep the meaning same, but make them simpler .
                 Sentence : {sentence}
-                Simplified sentence : 
+                Simple : {{Outputs}}
                 """
 
 

@@ -34,7 +34,7 @@ class TextByGPT4:
                     "content": prompt,
                 }
             ],
-            model="",
+            model="gpt-4",
         )
 
         status = response['choices'][0]['finish_reason']
