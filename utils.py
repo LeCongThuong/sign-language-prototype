@@ -68,3 +68,17 @@ def load_json(file_path):
 def save_json(file_path, data):
     with open(file_path, 'w', encoding='utf-8') as json_file:
         json.dump(data, json_file, ensure_ascii=False, indent=4)
+
+def create_openai_data(filename, prompts, model="gpt-4", temperature=0):
+    jobs = [
+        {
+            "model": model,
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": temperature,
+        } for prompt in prompts
+    ]
+
+    with open(filename, "w", encoding='utf-8') as f:
+        for job in jobs:
+            json_string = json.dumps(job, ensure_ascii=False)
+            f.write(json_string + "\n")
